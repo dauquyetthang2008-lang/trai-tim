@@ -1,13 +1,67 @@
-<html lang="en>"
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
-    <title>Heart Animation | @code.ares</title>
-    <link rel="stylesheet" herf="style.css">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
 
-<body> 
-    <canvas id="heart"></canvas>
-    <script src="script.js"></script>
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #ff3838;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.2s infinite;
+            box-shadow: 0 0 40px #ff3838;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #ff3838;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: rotate(-45deg) scale(0.8);
+            }
+            50% {
+                transform: rotate(-45deg) scale(1.2);
+            }
+            100% {
+                transform: rotate(-45deg) scale(0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart"></div>
+
 </body>
 </html>
